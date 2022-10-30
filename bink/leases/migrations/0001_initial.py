@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('lease_start_date', models.DateField()),
                 ('lease_end_date', models.DateField()),
                 ('lease_years', models.IntegerField()),
-                ('current_rent', models.IntegerField()),
+                ('current_rent', models.FloatField()),
             ],
         ),
     ]
