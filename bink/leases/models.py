@@ -22,7 +22,10 @@ class Property(models.Model):
 
 class Lease(models.Model):
     def __repr__(self):
-        return f'{self.id}, {self.property}'
+        return f'Lease: {self.property.property_name} - {self.current_rent}'
+
+    def __str__(self):
+        return f'Lease: {self.property.property_name} - {self.current_rent}'
 
     tenant = models.ForeignKey(
         Tenant,
