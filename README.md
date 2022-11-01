@@ -11,6 +11,8 @@ docker-compose up
 
 ## Usage
 
+Please run these commands on the command line inside the project directory.
+
 ```bash
 
 docker exec -t django bink/manage.py get_first_five_leases_by_ascending_rent
