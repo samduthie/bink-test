@@ -26,7 +26,7 @@ class LeaseTests(TestCase):
         for lease in leases:
             expected_total_value = expected_total_value + lease.current_rent
 
-        self.assertEqual(expected_total_value, total_lease_value['current_rent__sum'])
+        self.assertEqual(expected_total_value, total_lease_value["current_rent__sum"])
 
     def test_get_leases_between_dates(self):
         date1 = (2006, 6, 1)
