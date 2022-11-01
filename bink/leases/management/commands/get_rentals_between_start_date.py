@@ -14,4 +14,7 @@ class Command(BaseCommand):
         date1 = (1999, 6, 1)
         date2 = (2007, 8, 31)
 
-        logic.display_leases_between_dates(date1, date2)
+        leases = logic.get_leases_between_dates(date1, date2)
+
+        for lease in leases:
+            print(f"{lease['name']}, End Date: {lease['date']}")

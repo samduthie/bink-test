@@ -25,3 +25,4 @@ docker exec -t django bink/manage.py get_tenant_names_and_masts
 Given more time here are some additions to this test that could be made:
 - Add parameters to django management commands, giving them more flexibility
 - Create an API to display masts
+- Use fixture data for tests, using migrations to import data is something I have done just for ease of this test.
