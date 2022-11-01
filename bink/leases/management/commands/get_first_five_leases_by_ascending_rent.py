@@ -1,10 +1,10 @@
 from django.core.management.base import BaseCommand, CommandError
-from leases import models
+from leases import logic
 
 
 class Command(BaseCommand):
     help = "Get first five leases by ascending current rent"
 
     def handle(self, *args, **options):
-        leases = models.Lease.objects.all().order_by("-current_rent")
-        print(leases[:5])
+        leases = logic.get_leases(order_by="-current_rent")
+        print(leases)
