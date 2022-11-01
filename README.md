@@ -1,6 +1,6 @@
-# Masts Leases python test
+# Masts & Leases python test
 
-This django application is a test completion for Bink, with management commands that will print out information on mast data
+This django application is a test for Bink, with management commands that will print out information on mast data
 
 ## Installation
 
@@ -12,6 +12,7 @@ docker-compose up
 ## Usage
 
 Please run these commands on the command line inside the project directory.
+Note the application must be actively running.
 
 ```bash
 
@@ -19,6 +20,12 @@ docker exec -t django bink/manage.py get_first_five_leases_by_ascending_rent
 docker exec -t django bink/manage.py get_leases_with_25_years
 docker exec -t django bink/manage.py get_rentals_between_start_date
 docker exec -t django bink/manage.py get_tenant_names_and_masts
+```
+
+## Tests
+Tests can be run inside the docker container
+```bash
+manage.py test
 ```
 
 ## Next Steps
