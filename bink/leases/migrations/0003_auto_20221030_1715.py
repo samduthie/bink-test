@@ -10,48 +10,50 @@ from leases import models
 def backwards(apps, schema_editor):
     pass
 
+
 def forwards(apps, schema_editor):
     field_names = [
-        'property_name',
-        'property_address_1',
-        'property_address_2',
-        'property_address_3',
-        'property_address_4',
-        'unit_name',
-        'tenant_name',
-        'lease_start_date',
-        'lease_end_date',
-        'lease_years',
-        'current_rent',
+        "property_name",
+        "property_address_1",
+        "property_address_2",
+        "property_address_3",
+        "property_address_4",
+        "unit_name",
+        "tenant_name",
+        "lease_start_date",
+        "lease_end_date",
+        "lease_years",
+        "current_rent",
     ]
 
-    datetime_format_for_csv_data = '%d %b %Y'
+    datetime_format_for_csv_data = "%d %b %Y"
 
-    with open('data.csv', newline='') as f:
-        reader = csv.DictReader(f, delimiter=',', fieldnames=field_names)
+    with open("data.csv", newline="") as f:
+        reader = csv.DictReader(f, delimiter=",", fieldnames=field_names)
         next(reader)  # skip headers
         for row in reader:
             tenant_instance = models.Tenant.objects.get_or_create(
-                tenant_name=row['tenant_name'],
+                tenant_name=row["tenant_name"],
             )[0]
 
             property_instance = models.Property.objects.get_or_create(
-                property_name=row['property_name'],
-                property_address_1=row['property_address_1'],
-                property_address_2=row['property_address_2'],
-                property_address_3=row['property_address_3'],
-                property_address_4=row['property_address_4'],
-
-                unit_name=row['unit_name'],
+                property_name=row["property_name"],
+                property_address_1=row["property_address_1"],
+                property_address_2=row["property_address_2"],
+                property_address_3=row["property_address_3"],
+                property_address_4=row["property_address_4"],
+                unit_name=row["unit_name"],
             )[0]
 
             models.Lease.objects.create(
-                lease_start_date=datetime.strptime(row['lease_start_date'], datetime_format_for_csv_data),
-                lease_end_date=datetime.strptime(row['lease_end_date'], datetime_format_for_csv_data),
-
-                lease_years=row['lease_years'],
-                current_rent=row['current_rent'],
-
+                lease_start_date=datetime.strptime(
+                    row["lease_start_date"], datetime_format_for_csv_data
+                ),
+                lease_end_date=datetime.strptime(
+                    row["lease_end_date"], datetime_format_for_csv_data
+                ),
+                lease_years=row["lease_years"],
+                current_rent=row["current_rent"],
                 property=property_instance,
                 tenant=tenant_instance,
             )
@@ -60,7 +62,7 @@ def forwards(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('leases', '0002_auto_20221030_1714'),
+        ("leases", "0002_auto_20221030_1714"),
     ]
 
     operations = [

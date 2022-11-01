@@ -7,67 +7,91 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('leases', '0001_initial'),
+        ("leases", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Property',
+            name="Property",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('property_name', models.CharField(max_length=255)),
-                ('property_address_1', models.CharField(max_length=255)),
-                ('property_address_2', models.CharField(max_length=255)),
-                ('property_address_3', models.CharField(max_length=255)),
-                ('property_address_4', models.CharField(max_length=255)),
-                ('unit_name', models.CharField(max_length=60)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("property_name", models.CharField(max_length=255)),
+                ("property_address_1", models.CharField(max_length=255)),
+                ("property_address_2", models.CharField(max_length=255)),
+                ("property_address_3", models.CharField(max_length=255)),
+                ("property_address_4", models.CharField(max_length=255)),
+                ("unit_name", models.CharField(max_length=60)),
             ],
         ),
         migrations.CreateModel(
-            name='Tenant',
+            name="Tenant",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('tenant_name', models.CharField(max_length=60)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("tenant_name", models.CharField(max_length=60)),
             ],
         ),
         migrations.RemoveField(
-            model_name='lease',
-            name='property_address_1',
+            model_name="lease",
+            name="property_address_1",
         ),
         migrations.RemoveField(
-            model_name='lease',
-            name='property_address_2',
+            model_name="lease",
+            name="property_address_2",
         ),
         migrations.RemoveField(
-            model_name='lease',
-            name='property_address_3',
+            model_name="lease",
+            name="property_address_3",
         ),
         migrations.RemoveField(
-            model_name='lease',
-            name='property_address_4',
+            model_name="lease",
+            name="property_address_4",
         ),
         migrations.RemoveField(
-            model_name='lease',
-            name='property_name',
+            model_name="lease",
+            name="property_name",
         ),
         migrations.RemoveField(
-            model_name='lease',
-            name='tenant_name',
+            model_name="lease",
+            name="tenant_name",
         ),
         migrations.RemoveField(
-            model_name='lease',
-            name='unit_name',
+            model_name="lease",
+            name="unit_name",
         ),
         migrations.AddField(
-            model_name='lease',
-            name='property',
-            field=models.ForeignKey(default='', on_delete=django.db.models.deletion.CASCADE, to='leases.property'),
+            model_name="lease",
+            name="property",
+            field=models.ForeignKey(
+                default="",
+                on_delete=django.db.models.deletion.CASCADE,
+                to="leases.property",
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='lease',
-            name='tenant',
-            field=models.ForeignKey(default='', on_delete=django.db.models.deletion.CASCADE, to='leases.tenant'),
+            model_name="lease",
+            name="tenant",
+            field=models.ForeignKey(
+                default="",
+                on_delete=django.db.models.deletion.CASCADE,
+                to="leases.tenant",
+            ),
             preserve_default=False,
         ),
     ]

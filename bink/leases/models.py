@@ -3,14 +3,14 @@ from django.db import models
 
 class Tenant(models.Model):
     def __repr__(self):
-        return f'{self.tenant_name}'
+        return f"{self.tenant_name}"
 
     tenant_name = models.CharField(max_length=60)
 
 
 class Property(models.Model):
     def __repr__(self):
-        return f'{self.property_name}'
+        return f"{self.property_name}"
 
     property_name = models.CharField(max_length=255)
     property_address_1 = models.CharField(max_length=255)
@@ -22,10 +22,10 @@ class Property(models.Model):
 
 class Lease(models.Model):
     def __repr__(self):
-        return f'Lease: {self.property.property_name} - {self.current_rent}'
+        return f"Lease: {self.property.property_name} - {self.current_rent}"
 
     def __str__(self):
-        return f'Lease: {self.property.property_name} - {self.current_rent}'
+        return f"Lease: {self.property.property_name} - {self.current_rent}"
 
     tenant = models.ForeignKey(
         Tenant,

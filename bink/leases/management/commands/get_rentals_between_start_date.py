@@ -7,7 +7,9 @@ from leases import models
 
 
 class Command(BaseCommand):
-    help = 'Get rentals with lease start date between 1st June 1999 and 31st August 2007'
+    help = (
+        "Get rentals with lease start date between 1st June 1999 and 31st August 2007"
+    )
 
     def handle(self, *args, **options):
         leases = models.Lease.objects.filter(
@@ -16,5 +18,5 @@ class Command(BaseCommand):
         )
 
         for lease in leases:
-            formatted_date = lease.lease_start_date.strftime('%d/%m/%Y')
-            print(f'{lease.property.property_name}, End Date: {formatted_date}')
+            formatted_date = lease.lease_start_date.strftime("%d/%m/%Y")
+            print(f"{lease.property.property_name}, End Date: {formatted_date}")

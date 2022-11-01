@@ -5,10 +5,10 @@ from leases import models
 
 
 class Command(BaseCommand):
-    help = 'Get list of 25 year leases and sum of total value'
+    help = "Get list of 25 year leases and sum of total value"
 
     def handle(self, *args, **options):
         leases = models.Lease.objects.filter(lease_years=25)
-        total_lease_value = leases.aggregate(Sum('current_rent'))
+        total_lease_value = leases.aggregate(Sum("current_rent"))
         print(leases)
         print("total rent: ", total_lease_value)
