@@ -28,7 +28,7 @@ def forwards(apps, schema_editor):
 
     datetime_format_for_csv_data = "%d %b %Y"
 
-    with open("data.csv", newline="") as f:
+    with open("leases/migrations/data/data.csv", newline="") as f:
         reader = csv.DictReader(f, delimiter=",", fieldnames=field_names)
         next(reader)  # skip headers
         for row in reader:

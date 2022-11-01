@@ -9,4 +9,3 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         names_and_mast_counts = logic.get_tenant_names_and_mast_counts()
         print(names_and_mast_counts)
-

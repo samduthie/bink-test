@@ -1,3 +1,8 @@
 from django.test import TestCase
 
-# Create your tests here.
+from leases import logic
+
+
+class LeaseTests(TestCase):
+    def test_get_leases(self):
+        pass
